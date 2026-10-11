@@ -127,7 +127,8 @@ padding is optional but i do this because of lists*/
 header,
 section,
 footer {
-  padding-inline: 355px;
+  width: min(100% - 48px, 730px);
+  margin-inline: auto;
 }
 
 .planet-hero{
