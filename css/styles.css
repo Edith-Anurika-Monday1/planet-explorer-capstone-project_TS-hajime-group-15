@@ -1,0 +1,55 @@
+/* Statistics Card Styling */
+.stats-card {
+    background-color: #1b263b; /* Dark blue from your screenshot */
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+}
+
+.main-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #0d1b2a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Semantic Table Styling */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+thead {
+    background-color: #0056b3;
+    color: white;
+}
