@@ -135,21 +135,46 @@ footer {
    font-family: "Space Mono", monospace, sans-serif;
 }
 
-html{
-  --white: #F6F8FF;
-  --white2: #FFFFFF;
-  --black: #2B3442;
+:root{
+  --bg-color: #F6F8FF;
+  --planet-name-stat-figure: #2B3442;
   --blue:#0079FF;
-  --grey: #4B6A9B;
+  --planet-description: #4B6A9B;
+  --placeholder-gmp-metrics: #4B6A9B;
+  --hero-search-bg: #FFFFFF;
+
 }
 
 body{
-  background-color: var(--white);
+  background-color: var(--bg-color);
+}
+
+.no-results {
+  margin-top: 40px;
+  padding: 48px;
+  border-radius: 15px;
+  background-color: var(--hero-search-bg);
+  box-shadow: 0 16px 30px -10px #4660BB33;
+  text-align: center;
+}
+
+.no-results h2 {
+  color: var(--planet-name-stat-figure);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.no-results p {
+  margin-top: 16px;
+  color: var(--planet-description);
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 .planet-container{
-  margin-top: 100px;
-  background-color: var(--white2);
+  margin-top: 40px;
+  background-color: var(--hero-search-bg);
   box-shadow: 0 16px 30px -10px #4660BB33;
   border: none;
   border-radius: 15px;
@@ -173,7 +198,7 @@ body{
   flex: 4;
 
   h1{
-    color: var(--black);
+    color: var(--planet-name-stat-figure);
     font-size: 26px;
     font-weight: 700;
     line-height: 120%;
@@ -187,7 +212,7 @@ body{
 }
 
 #planet-description{
-  color: var(--grey);
+  color: var(--planet-description);
   font-size: 15px;
   font-weight: 400;
   line-height: 150%;
@@ -196,7 +221,7 @@ body{
 }
 
 .planet-stats{
-  background-color: var(--white);
+  background-color: var(--bg-color);
   border-radius: 10px;
   padding: 15px 32px;
   margin-top: 24px;
@@ -208,14 +233,14 @@ body{
     flex-direction: column;
 
     .stat-label{
-      color: var(--grey);
+      color: var(--placeholder-gmp-metrics);
       font-size: 13px;
       font-weight: 400;
       line-height: 150%;
     }
 
     .stat-value{
-      color: var(--black);
+      color: var(--planet-name-stat-figure);
       font-size: 22px;
       font-weight: 700;
       line-height: 140%;
@@ -234,7 +259,7 @@ body{
     column-gap: 16px;
 
     .metric-value{
-      color: var(--grey);
+      color: var(--placeholder-gmp-metrics);
       font-size: 15px;
       font-weight: 400;
       line-height: 150%;

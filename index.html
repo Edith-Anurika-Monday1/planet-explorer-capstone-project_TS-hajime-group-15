@@ -11,6 +11,15 @@
 </head>
 <body>
   <main>
+    <section id="no-results" class="no-results" aria-live="polite" hidden>
+      <h2>No results found!</h2>
+      <p>
+        We couldn’t find any planet matching your search.
+        Please double-check the name and try again.
+      </p>
+    </section>
+
+
     <section class="planet-hero">
       <div class="planet-container">
         <!-- left hand side -->
@@ -20,8 +29,10 @@
 
         <!-- right hand side -->
         <div class="hero-right-side">
-          <h1 id="planet-name">Earth</h1>
-          <span id="planet-type">Terrestrial</span>
+          <div class="planet-heading">
+            <h1 id="planet-name">Earth</h1>
+            <span id="planet-type">Terrestrial</span>
+          </div>
           <p id="planet-description">The only known planet to support life, with liquid water on its surface.</p>
 
           <div class="planet-stats">
