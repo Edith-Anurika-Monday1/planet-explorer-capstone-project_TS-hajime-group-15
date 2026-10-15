@@ -1,46 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planet Explorer - Theme Toggle</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+      >
+        <span id="theme-label">DARK</span>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>footer section</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-    <hr>
-    <footer>
-        <div class="footer-wrapper">
-            <div class="footer-about">
-                <h3>About</h3>
-                <ul class="member-name">
-                    <li>Edith Anurika Monday (Group leader)</li>
-                    <li>Ewegbemi Babatunde (Assistant group leader) </li>
-                    <li>Godstime Ogagarojo</li>
-                    <li>Oluwalore Tijesu</li>
-                    <li>Gbadamosi Iyanu Bridget</li>
-                    <li>Oluwalanaayomi Samuel Akiode</li>
-                    <li>Samuel Elizabeth Ebenge</li>
-                </ul>
-            </div>
-            <div class="footer-credit">
-                <p>&copy; 2026 Design by <a href="https://amakandukwu.com" target="_blank" rel="noopener noreferrer">Amaka
-                        N</a></p>
-                <p>Built by <a
-                        href="https://github.com/Edith-Anurika-Monday1/planet-explorer-capstone-project_TS-hajime-group-15.git"
-                        target="_blank" rel="noopener noreferrer">TS Academy | HAJIME (frontend development) CAPSTONE
-                        PROJECT</a></p>
-                <p>All rights reserved <a href="https://tsacademyonline.com/" target="_blank"
-                        rel="noopener noreferrer">TSAcademy</a></p>
-            </div>
-        </div>
-    </footer>
-</body>
-
+        <svg
+          id="theme-icon"
+          class="theme-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M21 14.2A8.5 8.5 0 0 1 1 9.8 3 8.8 0 1 0 21 14.2Z" />
+        </svg>
+      </button>
+    </main>
+  </body>
 </html>
