@@ -1,13 +1,79 @@
+:root {
+  color-scheme: light;
+  --page-background: #f5f7fc;
+  --text-color: #30394b;
+  --toggle-color: #536c9f;
+  --focus-color: #3478f6;
+}
+
+body.dark-mode {
+  color-scheme: dark;
+  --page-background: #151d30;
+  --text-color: #f5f7fc;
+  --toggle-color: #9aade0;
+  --focus-color: #3478f6;
+}
+
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body{
-  background-color: #F6F8FF;
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--page-background);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 20px 24px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 10px 14px;
+  border: 3px solid transparent;
+  border-radius: 18px;
+  background: transparent;
+  color: var(--toggle-color);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgb(128 150 200 / 10%);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+.theme-label {
+  font-family: monospace;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.theme-icon {
+  width: 42px;
+  height: 42px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 footer {
@@ -19,33 +85,41 @@ footer {
   font-size: 10px;
 }
 
-.footer-wrapper{
+.footer-wrapper {
   display: flex;
   justify-content: space-between;
-
-  h3{
-    font-size: 20px;
-    margin-bottom: 18px;
-  }
-
-  ul > li{
-    list-style: none;
-    color: #4B6A9B;
-  }
 }
 
-.footer-credit{
+.footer-wrapper h3 {
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.footer-wrapper ul > li {
+  list-style: none;
+  color: #4b6a9b;
+}
+
+.footer-credit {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
 
-  a{
-    color: #4B6A9B;
-    text-decoration: none;
-  }
+.footer-credit a {
+  color: #4b6a9b;
+  text-decoration: none;
+}
 
-  a:hover{
-    text-decoration: underline;
-    color: #3f47dc;
+.footer-credit a:hover {
+  text-decoration: underline;
+  color: #3f47dc;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }
