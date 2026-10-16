@@ -1,14 +1,79 @@
-/* Light theme — default */ :root { color-scheme: light;
---page-background: #F5F7FC;
---text-color: #30394B;
---toggle-color: #536C9F;
---focus-color: #3478F6;
+:root {
+  color-scheme: light;
+  --page-background: #f5f7fc;
+  --text-color: #30394b;
+  --toggle-color: #536c9f;
+  --focus-color: #3478f6;
 }
-/* Dark theme */ body.dark-mode { color-scheme: dark;
---page-background: #151D30;
---text-color: #F5F7FC;
---toggle-color: #9AADE0;
---focus-color: #3478F6;
+
+body.dark-mode {
+  color-scheme: dark;
+  --page-background: #151d30;
+  --text-color: #f5f7fc;
+  --toggle-color: #9aade0;
+  --focus-color: #3478f6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--page-background);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 20px 24px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 10px 14px;
+  border: 3px solid transparent;
+  border-radius: 18px;
+  background: transparent;
+  color: var(--toggle-color);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgb(128 150 200 / 10%);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+.theme-label {
+  font-family: monospace;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.theme-icon {
+  width: 42px;
+  height: 42px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 /* Base page styles */
 *{
@@ -18,35 +83,3 @@ body { margin: 0; min-height: 100vh; background-color: var(--page-background); c
 transition:
     background-color 0.3s ease,
     color 0.3s ease;
-}
-/* position the toggle at the top-right corner */ main { 
-    min-height: 100vh; 
-    display: 
-    flex; align-items: flex-start; 
-    justify-content: flex-end;
-padding: 20px 24px; }
-
-/* Toggle button */ .theme-toggle { 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: 
-    center; gap: 18px;
-padding: 10px 14px;
-border: 3px solid transparent;
-border-radius: 18px;
-
-background: transparent;
-color: var(--toggle-color);
-
-cursor: pointer;
-
-transition:
-    border-color 0.2s ease,
-    color 0.3s ease,
-    background-color 0.3s ease;
-}
-/* DARK / LIGHT label */ .theme-label { font-family: monospace; font-size: 24px; font-weight: 700; letter-spacing: 4px; }
-/* Moon / sun icon */ .theme-icon { width: 42px; height: 42px; fill: currentColor; flex-shrink: 0; }
-/* Visible keyboard focus */ .theme-toggle:focus-visible { outline: 3px solid var(--focus-color); outline-offset: 3px; }
-/* Optional hover feedback */ .theme-toggle:hover { background-color: rgb(128 150 200 / 10%); }
-/* Respect reduced-motion preferences */ @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
