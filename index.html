@@ -1,3 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore planets and compare their key facts in our solar system.">
+  <title>Planet Explorer | Planetary Facts</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <main id="main-content">
+      <h1 class="visually-hidden">Planet Explorer</h1>
+
+      <p id="app-status" class="app-status" role="status" aria-live="polite" aria-atomic="true">Loading planet data…</p>
+
+      <section class="featured-card" aria-labelledby="detail-name">
+        <figure class="planet-visual">
+          <img id="planet-image" src="https://anurella.github.io/images/planets/earth.jpg" alt="Earth, a terrestrial planet" loading="eager">
+          <figcaption class="visually-hidden" id="planet-image-caption">Selected planet image</figcaption>
+        </figure>
+
+        <div class="planet-details">
+          <h2 id="detail-name">Earth</h2>
+          <p id="detail-category" class="planet-category">Terrestrial</p>
+          <p id="detail-desc" class="planet-description">The only known planet to support life, with liquid water on its surface.</p>
+
+          <dl class="major-metrics">
+            <div>
+              <dt class="metric-label">Gravity</dt>
+              <dd id="stat-gravity">9.8 m/s²</dd>
+            </div>
+            <div>
+              <dt class="metric-label">Mass</dt>
+              <dd id="stat-mass">0.00315</dd>
+            </div>
+            <div>
+              <dt class="metric-label">Orbital period</dt>
+              <dd id="stat-period">365 days</dd>
+            </div>
+          </dl>
+
+          <dl class="secondary-metrics">
+            <div>
+              <span class="fact-icon" aria-hidden="true">
+                <img src="assets/icons/temp.svg" alt="">
+              </span>
+              <dd id="fact-temp">288 K</dd>
+              <dt class="fact-label">Temperature</dt>
+            </div>
+
+            <div>
+              <span class="fact-icon" aria-hidden="true">
+                <img src="assets/icons/moon.svg" alt="">
+              </span>
+              <dd id="fact-moons">1 moon</dd>
+              <dt class="fact-label">Moons</dt>
+            </div>
+
+            <div>
+              <span class="fact-icon" aria-hidden="true">
+                <img src="assets/icons/diameter.svg" alt="">
+              </span>
+              <dd id="fact-diameter">12,756 km</dd>
+              <dt class="fact-label">Diameter</dt>
+            </div>
+
+            <div>
+              <span class="fact-icon" aria-hidden="true">
+                <img src="assets/icons/company.svg" alt="">
+              </span>
+              <dd id="fact-distance">149.6 million km</dd>
+              <dt class="fact-label">Distance from Sun</dt>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="comparison-section" aria-labelledby="comparison-title">
+        <header class="section-heading">
+          <h2 id="comparison-title">Planetary Facts at a Glance</h2>
+          <p>Compare key physical properties of objects in our solar system. Select a planet name to view its details above.</p>
+          <p class="table-note">Planet data is loaded from the Planet Explorer API.</p>
+        </header>
+
+        <div class="table-wrapper">
+          <div class="table-scroll" tabindex="0" aria-label="Scrollable planet comparison table">
+            <table id="planets-data-table" class="planet-table">
+              <caption class="visually-hidden">Comparison of planet categories, names, API mass values, and diameters in kilometres.</caption>
+              <thead>
+                <tr>
+                  <th scope="col" aria-label="Planet group"></th>
+                  <th scope="col" aria-label="Planet subtype"></th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Mass (API value)</th>
+                  <th scope="col">Diameter (km)</th>
+                </tr>
+              </thead>
+              <tbody id="planet-table-body">
+                <tr>
+                  <td colspan="5" class="table-message">Loading planet data…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+=======
 revert-6-feature/footer
 <!doctype html>
 <html lang="en">
