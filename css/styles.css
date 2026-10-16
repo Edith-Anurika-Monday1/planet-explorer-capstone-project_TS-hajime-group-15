@@ -22,6 +22,20 @@ Poppins
 -----------BORDER-RADIUS-----------
 4px/ 8px/ 20px 
 
+.theme-icon {
+  width: 42px;
+  height: 42px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+/* Base page styles */
+*{
+     box-sizing: border-box;
+     }
+body { margin: 0; min-height: 100vh; background-color: var(--page-background); color: var(--text-color); font-family: Arial, sans-serif;
+transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 -----------SPACING SYSTEM-----------
 5px/ 10px/ 15px/ 20px/ 25px/ 30px/ 40px/ 50px/ 60px/ 70px/  80px/ 90px/ 100px/ 125px/ 150px/ 200px/ 250px/ 300px/ 400px/ 500px 
 */

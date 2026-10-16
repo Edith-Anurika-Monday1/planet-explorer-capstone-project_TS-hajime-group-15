@@ -1,24 +1,33 @@
-header-search-responsive
+revert-6-feature/footer
 <!doctype html>
 <html lang="en">
   <head>
-    prettier-ignore
-    <meta charset="UTF-8">
-    <!--prettier-ignore-->
-    <meta name="author" content="Oluwalore Matthew">
-    <!--prettier-ignore-->
-    <meta name="description" content="Quill html file">
-    <!--prettier-ignore-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--prettier-ignore-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--prettier-ignore-->
-    <link rel="stylesheet" href="css/styles.css">
-    <!--prettier-ignore-->\
-    <link rel="stylesheet" href="css/queries.css">
-    <title>Planet Explorer - Discover our solar system</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planet Explorer - Theme Toggle</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js" defer></script>
   </head>
   <body>
+    <main>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+      >
+        <span id="theme-label">DARK</span>
+
+        <svg
+          id="theme-icon"
+          class="theme-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M21 14.2A8.5 8.5 0 0 1 1 9.8 3 8.8 0 1 0 21 14.2Z" />
+        </svg>
+      </button>
     <div class="container">
       <!-- HEADER/NAV -->
       <header>
