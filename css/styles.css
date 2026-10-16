@@ -1,3 +1,4 @@
+header-search-responsive
 /* 
 -----------TYPOGRAPHY-----------
 
@@ -124,4 +125,3 @@ body {
   border: 1px solid var(--primary);
   border-radius: 0.8rem;
   padding: 1.2rem 2rem;
-}
