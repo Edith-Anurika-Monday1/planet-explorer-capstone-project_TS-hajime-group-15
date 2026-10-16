@@ -1,125 +1,268 @@
-:root {
-  color-scheme: light;
-  --page-background: #f5f7fc;
-  --text-color: #30394b;
-  --toggle-color: #536c9f;
-  --focus-color: #3478f6;
-}
-
-body.dark-mode {
-  color-scheme: dark;
-  --page-background: #151d30;
-  --text-color: #f5f7fc;
-  --toggle-color: #9aade0;
-  --focus-color: #3478f6;
-}
-
+/* reset css */
+/* 1. border-box for box model */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+/* 2. remove default margin 
+padding is optional but i do this because of lists*/
+
+:where(:not(dialog)) {
   margin: 0;
   padding: 0;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background-color: var(--page-background);
-  color: var(--text-color);
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* 3. great for in-page linking */
+@media (prefers-reduced-motion: no-preference) {
+  :where(html) {
+    scroll-behavior: smooth;
+  }
 }
 
-main {
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 20px 24px;
+/* 4. line height and text rendering improvement */
+:where(html) {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  padding: 10px 14px;
-  border: 3px solid transparent;
-  border-radius: 18px;
-  background: transparent;
-  color: var(--toggle-color);
+/* 5. ensure full viewport height */
+:where(html, body) {
+  min-block-size: 100%;
+}
+
+/* 6. improve line wrapping */
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+:where(p) {
+  text-wrap: pretty;
+}
+
+:where(figure) > :where(figcaption) {
+  text-wrap: balance;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+}
+
+/* 7. making media elements block-level */
+:where(img, svg, video, canvas, picture, audio, iframe, embed, object) {
+  display: block;
+}
+
+:where(img, svg, video, canvas, picture) {
+  block-size: auto;
+  max-inline-size: 100%;
+}
+
+/* 8. inherit font and letter spacing for form controls */
+:where(input, button, textarea, select),
+:where(input[type="file"])::-webkit-file-upload-button {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* 9. textarea can only resized vertically and will grow to adjust its content */
+:where(textarea) {
+  resize: vertical;
+  field-sizing: content;
+}
+
+/* 10. table */
+:where(table) {
+  width: fit-content;
+  border-collapse: collapse;
+}
+
+:where(pre) {
+  direction: ltr;
+  max-inline-size: max-content;
+  min-inline-size: 0;
+  white-space: pre;
+  writing-mode: lr;
+}
+
+:where(
+  a[href],
+  area,
+  button,
+  input:not(
+    [type="text"],
+    [type="email"],
+    [type="number"],
+    [type="password"],
+    [type=""],
+    [type="tel"],
+    [type="url"]
+  ),
+  label[for],
+  select,
+  summary,
+  [tabindex]:not([tabindex*="-"], pre)
+) {
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.3s ease, background-color 0.3s ease;
 }
 
-.theme-toggle:hover {
-  background-color: rgb(128 150 200 / 10%);
+/*  this will disable additional non-standard gestures such as double-tap to zoom*/
+:where(
+  a[href],
+  area,
+  button,
+  input,
+  label[for],
+  select,
+  summary,
+  textarea,
+  [tabindex]:not([tabindex*="-"])
+) {
+  touch-action: manipulation;
 }
 
-.theme-toggle:focus-visible {
-  outline: 3px solid var(--focus-color);
-  outline-offset: 3px;
-}
 
-.theme-label {
-  font-family: monospace;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 4px;
-}
-
-.theme-icon {
-  width: 42px;
-  height: 42px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
-
+/* My css */
+header,
+section,
 footer {
   width: min(100% - 48px, 730px);
   margin-inline: auto;
-  font-family: "Inter", sans-serif;
+}
+
+.planet-hero{
+   font-family: "Space Mono", monospace, sans-serif;
+}
+
+:root{
+  --bg-color: #F6F8FF;
+  --planet-name-stat-figure: #2B3442;
+  --blue:#0079FF;
+  --planet-description: #4B6A9B;
+  --placeholder-gmp-metrics: #4B6A9B;
+  --hero-search-bg: #FFFFFF;
+
+}
+
+body{
+  background-color: var(--bg-color);
+}
+
+.no-results {
+  margin-top: 40px;
+  padding: 48px;
+  border-radius: 15px;
+  background-color: var(--hero-search-bg);
+  box-shadow: 0 16px 30px -10px #4660BB33;
+  text-align: center;
+}
+
+.no-results h2 {
+  color: var(--planet-name-stat-figure);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.no-results p {
+  margin-top: 16px;
+  color: var(--planet-description);
+  font-size: 15px;
   line-height: 1.5;
-  font-weight: 600;
-  font-size: 10px;
 }
 
-.footer-wrapper {
+.planet-container{
+  margin-top: 40px;
+  background-color: var(--hero-search-bg);
+  box-shadow: 0 16px 30px -10px #4660BB33;
+  border: none;
+  border-radius: 15px;
+  padding: 48px 53px 48px 48px;
   display: flex;
-  justify-content: space-between;
+  column-gap: 32px;
 }
 
-.footer-wrapper h3 {
-  font-size: 20px;
-  margin-bottom: 18px;
+.hero-left-side {
+  flex: 1;
+
+  img{
+  width: 117px;
+  height: 117px;
+  border-radius: 50%;
+  object-fit: cover;
+  }
 }
 
-.footer-wrapper ul > li {
-  list-style: none;
-  color: #4b6a9b;
+.hero-right-side{
+  flex: 4;
+
+  h1{
+    color: var(--planet-name-stat-figure);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+#planet-type{
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
 }
 
-.footer-credit {
+#planet-description{
+  color: var(--planet-description);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 150%;
+  margin-top: 24px;
+}
+}
+
+.planet-stats{
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  padding: 15px 32px;
+  margin-top: 24px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+
+  div{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .stat-label{
+      color: var(--placeholder-gmp-metrics);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 150%;
+    }
+
+    .stat-value{
+      color: var(--planet-name-stat-figure);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 140%;
+    }
+  }
 }
 
-.footer-credit a {
-  color: #4b6a9b;
-  text-decoration: none;
-}
+.planet-metrics{
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 
-.footer-credit a:hover {
-  text-decoration: underline;
-  color: #3f47dc;
-}
+  div{
+    display: flex;
+    column-gap: 16px;
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
+    .metric-value{
+      color: var(--placeholder-gmp-metrics);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 150%;
+    }
   }
 }
