@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our solar system through planetary data, facts, and comparisons.">
+    <meta name="author" content="Edith Anurika Monday">
+    <title>Planet Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io (3)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io (3)/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io (3)/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon_io (3)/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <img src="/assets/logo_black.svg" alt="Planet Explorer">
+        <button type="button" aria-label="Toggle color theme">
+            <span>DARK</span>
+            <img src="./assets/theme_toggle.svg" alt="">
+        </button>
+    </header>
+
+    <main>
+        <form action="" method="get">
+            <img src="/assets/Search Icon.png" alt="">
+            <label for="search-bar">Search planet name</label>
+            <input type="search" name="search" id="search-bar" placeholder="Search planet name">
+            <button type="submit">search</button>
+        </form>
+        <p id="search-status" role="status" aria-live="polite"></p>
+
+        <section aria-labelledby="planet-name">
+            <article>
+                <img src="/assets/earth.png" alt="the earth">
+                <h1 id="planet-name">Earth</h1>
+                <span>Terrestrial</span>
+                <p class="earth-description">The only known planet to support life, with liquid water on its surface.
+                </p>
+                <dl>
+                    <div>
+                        <dt>Gravity</dt>
+                        <dd>9.8</dd>
+                    </div>
+
+                    <div>
+                        <dt>Mass</dt>
+                        <dd>0.00315</dd>
+                    </div>
+
+                    <div>
+                        <dt>Period</dt>
+                        <dd>365</dd>
+                    </div>
+                </dl>
+
+                <dl>
+                    <div>
+                        <dt class="visually-hidden">Temperature</dt>
+                        <dd>
+                            <img src="./assets/Temperature icon.svg" alt="">
+                            288
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="visually-hidden">Number of moons</dt>
+                        <dd>
+                            <img src="./assets/Path (1).svg" alt="">
+                            1
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="visually-hidden">Diameter</dt>
+                        <dd>
+                            <img src="./assets/diameter.svg" alt="">
+                            12756
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="visually-hidden">Distance from the Sun</dt>
+                        <dd>
+                            <img src="./assets/Vector.svg" alt="">
+                            149.6
+                        </dd>
+                    </div>
+                </dl>
+            </article>
+        </section>
+
+        <section class="planetary-facts">
+
+            <h2>Planetary Facts at a Glance</h2>
+            <p>Below is a comparative table of major planets in our solar system. The data highlights key physical
+                properties used by astronomers and researchers worldwide.</p>
+
+            <table>
+                <caption>
+                    Data about the planets of our solar system (Planetary facts taken from NASA)
+                </caption>
+
+
+                <thead>
+                    <tr>
+                        <th colspan="2"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Mass (10 24kg)</th>
+                        <th scope="col">Diameter (km)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th rowspan="4" scope="rowgroup" colspan="2">Terrestrial Planets</th>
+                        <td>Mercury</td>
+                        <td>0.330</td>
+                        <td>4,878</td>
+                    </tr>
+
+                    <tr>
+                        <td>Venus</td>
+                        <td>4.87</td>
+                        <td>12,104</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Earth</td>
+                        <td>5.97</td>
+                        <td>12,756</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mars</td>
+                        <td>0.642</td>
+                        <td>6,792</td>
+                    </tr>
+
+                    <tr>
+                        <th rowspan="4" scope="rowgroup">Jovian Planets</th>
+                        <th rowspan="2" scope="rowgroup">Gas Giants</th>
+                        <td>Jupiter</td>
+                        <td>1,898</td>
+                        <td>142,984</td>
+                    </tr>
+
+                    <tr>
+                        <td>Saturn</td>
+                        <td>568</td>
+                        <td>120,536</td>
+                    </tr>
+
+
+                    <tr>
+                        <th rowspan="2" scope="rowgroup">Ice Giants</th>
+                        <td>Uranus</td>
+                        <td>86.8</td>
+                        <td>51,118</td>
+                    </tr>
+
+                    <tr>
+                        <td>Neptune</td>
+                        <td>102</td>
+                        <td>49,528</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" colspan="2">Dwarf Planet</th>
+                        <td>Pluto</td>
+                        <td>0.0130</td>
+                        <td>2376</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <section class="about-and-footer">
+            <div class="about">
+                <h3>About</h3>
+
+                <ul class="contributors">
+                    <li>Edith Anurika Monday (Group leader)</li>
+                    <li>Ewegbemi Babatunde (Assistant group leader)</li>
+                    <li>Godstime Ogagarojo</li>
+                    <li>Oluwalanaayomi Samuel Akiode</li>
+                    <li>Oluwalore Tijesu Matthew</li>
+                    <li>Gbadamosi Iyanu Bridget</li>
+                    <li>Samuel Elizabeth Ebenge</li>
+                    <li>Elvis Elmenmonde Ihimire</li>
+                    <li>Comfort Akor</li>
+                    <li>Nnuya Nmesoma Triumph</li>
+                </ul>
+            </div>
+
+            <div class="copy">
+                <p> &copy;2026 Design by <a href="https://amakandukwu.com/" target="_blank">Amaka N </a></p>
+
+                <p>Built by
+                    <a
+                        href="https://github.com/Edith-Anurika-Monday1/planet-explorer-capstone-project_TS-hajime-group-15" target="_blank"> THE GREAT DEVS| HAJIME (frontend development) CAPSTONE PROJECT 🧡</a> All rights reserved
+                    <a href="https://tsacademyonline.com/" target="_blank">TSAcademy</a>
+                </p>
+            </div>
+        </section>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

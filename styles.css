@@ -1,0 +1,961 @@
+/* Reset CSS by Amaka Ndukwu */
+
+/* making use of :where to allow for low specificity making it easy to override */
+
+
+/* 1. border-box for box model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. remove default margin 
+padding is optional but i do this because of lists*/
+
+:where(:not(dialog)) {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 3. great for in-page linking */
+@media(prefers-reduced-motion:no-preference) {
+    :where(html) {
+        scroll-behavior: smooth;
+    }
+}
+
+/* 4. line height and text rendering improvement */
+:where(html) {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 5. ensure full viewport height */
+:where(html, body) {
+    min-block-size: 100%;
+}
+
+/* 6. improve line wrapping */
+:where(h1, h2, h3,
+    h4, h5, h6) {
+    text-wrap: balance;
+}
+
+:where(p) {
+    text-wrap: pretty;
+}
+
+:where(figure)>:where(figcaption) {
+    text-wrap: balance;
+}
+
+:where(p, h1, h2, h3,
+    h4, h5, h6) {
+    overflow-wrap: break-word;
+}
+
+
+
+/* 7. making media elements block-level */
+:where(img,
+    svg,
+    video,
+    canvas,
+    picture,
+    audio,
+    iframe,
+    embed,
+    object) {
+    display: block
+}
+
+:where(img, svg, video, canvas, picture) {
+    block-size: auto;
+    max-inline-size: 100%
+}
+
+/* 8. inherit font and letter spacing for form controls */
+:where(input,
+    button,
+    textarea,
+    select),
+:where(input[type=file])::-webkit-file-upload-button {
+    font: inherit;
+    letter-spacing: inherit
+}
+
+/* 9. textarea can only resized vertically and will grow to adjust its content */
+:where(textarea) {
+    resize: vertical;
+    field-sizing: content;
+}
+
+/* 10. table */
+:where(table) {
+    width: fit-content;
+    border-collapse: collapse;
+}
+
+:where(pre) {
+    direction: ltr;
+    max-inline-size: max-content;
+    min-inline-size: 0;
+    white-space: pre;
+    writing-mode: lr
+}
+
+:where(a[href],
+    area,
+    button,
+    input:not([type=text],
+        [type=email],
+        [type=number],
+        [type=password],
+        [type=""],
+        [type=tel],
+        [type=url]),
+    label[for],
+    select,
+    summary,
+    [tabindex]:not([tabindex*="-"],
+        pre)) {
+    cursor: pointer
+}
+
+/*  this will disable additional non-standard gestures such as double-tap to zoom*/
+:where(a[href],
+    area,
+    button,
+    input,
+    label[for],
+    select,
+    summary,
+    textarea,
+    [tabindex]:not([tabindex*="-"])) {
+    touch-action: manipulation
+}
+
+/* ========================================
+   Planet Explorer — Global Styles
+======================================== */
+
+:root {
+    --color-background: #F6F8FF;
+    --color-surface: #FFFFFF;
+    --color-primary: #0079FF;
+    --color-secondary: #164BAF;
+    --color-text: #0F2A44;
+    --color-muted: #4B6A9B;
+    --color-table-row: #F2F7FF;
+    --color-border: #FFFFFF;
+}
+
+/* ==============================
+   GLOBAL STYLES
+============================== */
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+main {
+    width: min(100% - 2rem, 46rem);
+    margin-inline: auto;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: var(--color-primary);
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+header {
+    width: min(100% - 2rem, 44rem);
+    margin-inline: auto;
+    padding-block: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+header>img {
+    width: 8rem;
+    height: auto;
+}
+
+header button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    background: transparent;
+    color: var(--color-secondary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+header button img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* ==============================
+   SEARCH FORM
+============================== */
+
+main>form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-block: 1.5rem 2.5rem;
+    padding: 0.65rem 0.75rem 0.65rem 1rem;
+    background-color: var(--color-surface);
+    border-radius: 1rem;
+    box-shadow: 0 0.75rem 1.5rem rgb(32 82 181 / 8%);
+}
+
+main>form>img {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+main>form label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+main>form input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.65rem 0;
+    border: none;
+    outline-offset: 4px;
+    background: transparent;
+    color: var(--color-text);
+}
+
+main>form input::placeholder {
+    color: var(--color-muted);
+    opacity: 1;
+}
+
+main>form button {
+    flex-shrink: 0;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 0.65rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+main>form button:hover {
+    filter: brightness(0.92);
+}
+
+/* ==============================
+   PLANET DETAILS CARD
+============================== */
+
+main>section:first-of-type {
+    margin-bottom: 2rem;
+}
+
+main>section:first-of-type article {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    column-gap: 2rem;
+    row-gap: 1rem;
+    padding: 3rem;
+    background-color: var(--color-surface);
+    border-radius: 1rem;
+    box-shadow: 0 1rem 2rem rgb(32 82 181 / 10%);
+}
+
+main>section:first-of-type article>img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 7.5rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+main>section:first-of-type article h1 {
+    grid-column: 2;
+    align-self: end;
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+main>section:first-of-type article>span {
+    grid-column: 2;
+    margin-top: -1rem;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
+main>section:first-of-type article>p {
+    grid-column: 2;
+    color: var(--color-muted);
+    margin-top: 0.5rem;
+}
+
+/* ==============================
+   PRIMARY STATISTICS
+============================== */
+
+main>section:first-of-type article>dl:first-of-type {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--color-background);
+    border-radius: 0.65rem;
+}
+
+main>section:first-of-type article>dl:first-of-type dt {
+    margin-bottom: 0.25rem;
+    color: var(--color-secondary);
+    font-size: 0.75rem;
+}
+
+main>section:first-of-type article>dl:first-of-type dd {
+    font-size: 1.25rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* ==============================
+   ICON STATISTICS
+============================== */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+main>section:first-of-type article>dl:nth-of-type(2) {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 2rem;
+}
+
+main>section:first-of-type article>dl:nth-of-type(2) dd {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+}
+
+main>section:first-of-type article>dl:nth-of-type(2) img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* ==============================
+   PLANETARY FACTS
+============================== */
+
+.planetary-facts {
+    margin-block: 2rem 3rem;
+}
+
+.planetary-facts h2 {
+    margin-bottom: 0.5rem;
+    color: var(--color-secondary);
+    font-size: 1.75rem;
+    line-height: 1.3;
+}
+
+.planetary-facts>p {
+    margin-bottom: 2rem;
+    color: var(--color-text);
+}
+
+.planetary-facts caption {
+    margin-bottom: 1rem;
+    text-align: left;
+    font-weight: 700;
+}
+
+/* ==============================
+   PLANETARY TABLE
+============================== */
+
+.planetary-facts table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: var(--color-table-row);
+    font-size: 0.875rem;
+}
+
+.planetary-facts thead {
+    background-color: var(--color-secondary);
+    color: #ffffff;
+}
+
+.planetary-facts th,
+.planetary-facts td {
+    padding: 1rem 0.75rem;
+    border: 2px solid var(--color-border);
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.planetary-facts thead th {
+    font-weight: 700;
+}
+
+.planetary-facts tbody td {
+    background-color: var(--color-table-row);
+}
+
+.planetary-facts tbody th {
+    background-color: #D1E3FF;
+    font-weight: 700;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    padding: 2rem 1rem;
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+}
+
+.about-and-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    width: min(100%, 46rem);
+    margin-inline: auto;
+    color: var(--color-muted);
+}
+
+.about h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+}
+
+.contributors {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+}
+
+/* Hide bullets from the contributors list on all screens */
+.contributors {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.copy {
+    max-width: 28rem;
+    font-size: 0.8rem;
+}
+
+.copy p+p {
+    margin-top: 0.75rem;
+}
+
+.copy a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.copy a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   FONTS
+============================== */
+
+h1,
+h3,
+button,
+input,
+dd,
+.planet-stats,
+span,
+.earth-description {
+    font-family: "Space Mono", monospace;
+}
+
+.planetary-facts,
+.about-and-footer {
+    font-family: "Inter", sans-serif;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* Main page container */
+    main {
+        width: calc(100% - 2rem);
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    /* Header */
+    header {
+        width: calc(100% - 2rem);
+        padding-block: 1rem;
+    }
+
+    header>img {
+        width: 7rem;
+    }
+
+    /* Search form */
+    main>form {
+        gap: 0.5rem;
+        margin-block: 1.5rem;
+        padding: 0.5rem;
+        border: 1px solid var(--color-primary);
+        border-radius: 0.75rem;
+        min-width: 0;
+    }
+
+    main>form>img {
+        width: 1.125rem;
+        flex-shrink: 0;
+    }
+
+    main>form input {
+        flex: 1;
+        min-width: 0;
+        width: 100%;
+        font-size: 0.75rem;
+    }
+
+    main>form button {
+        flex-shrink: 0;
+        padding: 0.65rem 0.9rem;
+        font-size: 0.75rem;
+    }
+
+    /* Planet details card */
+    main>section:first-of-type article {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+        min-width: 0;
+        padding: 1.25rem;
+        border-radius: 0.875rem;
+    }
+
+    /* Planet image */
+    main>section:first-of-type article>img {
+        grid-column: 1;
+        grid-row: auto;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+    }
+
+    /* Planet name */
+    main>section:first-of-type article h1 {
+        grid-column: 1;
+        font-size: 1.125rem;
+    }
+
+    /* Planet category */
+    main>section:first-of-type article>span {
+        grid-column: 1;
+        margin-top: -0.75rem;
+        font-size: 0.75rem;
+    }
+
+    /* Planet description */
+    main>section:first-of-type article>p {
+        grid-column: 1;
+        margin-top: 0.25rem;
+        font-size: 0.75rem;
+    }
+
+    /* Gravity, Mass and Period */
+    main>section:first-of-type article>dl:first-of-type {
+        grid-column: 1;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.5rem;
+        min-width: 0;
+        margin-top: 0.25rem;
+        padding: 0.875rem;
+    }
+
+    main>section:first-of-type article>dl:first-of-type dt {
+        font-size: 0.7rem;
+    }
+
+    main>section:first-of-type article>dl:first-of-type dd {
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    /* =====================================
+       ICON STATISTICS
+       One icon + figure per row
+    ===================================== */
+
+    main>section:first-of-type article>dl:nth-of-type(2) {
+        grid-column: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+        min-width: 0;
+        width: 100%;
+    }
+
+    main>section:first-of-type article>dl:nth-of-type(2)>div {
+        display: block;
+        min-width: 0;
+    }
+
+    main>section:first-of-type article>dl:nth-of-type(2) dd {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        min-width: 0;
+        font-size: 0.75rem;
+    }
+
+    main>section:first-of-type article>dl:nth-of-type(2) img {
+        display: block;
+        flex: 0 0 1.125rem;
+        width: 1.125rem;
+        height: 1.125rem;
+        object-fit: contain;
+    }
+
+    /* =====================================
+       PLANETARY FACTS
+    ===================================== */
+
+    .planetary-facts {
+        width: 100%;
+        min-width: 0;
+        margin-block: 1.5rem 2rem;
+    }
+
+    .planetary-facts h2 {
+        font-size: 1.25rem;
+    }
+
+    .planetary-facts>p {
+        margin-bottom: 1.25rem;
+        font-size: 0.8rem;
+    }
+
+    .planetary-facts caption {
+        font-size: 0.75rem;
+        text-align: left;
+    }
+
+    /* =====================================
+       RESPONSIVE TABLE
+       I Kept the table inside the viewport.
+    ===================================== */
+
+    .planetary-facts table {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        table-layout: auto;
+        border-collapse: collapse;
+        font-size: 0.65rem;
+    }
+
+    .planetary-facts thead,
+    .planetary-facts tbody {
+        width: 100%;
+    }
+
+    .planetary-facts th,
+    .planetary-facts td {
+        padding: 0.5rem 0.2rem;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        min-width: 0;
+    }
+
+    .planetary-facts th {
+        font-size: 0.6rem;
+    }
+
+    /* =====================================
+       FOOTER
+    ===================================== */
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .about-and-footer {
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .about h3 {
+        font-size: 1rem;
+    }
+
+    .contributors {
+        font-size: 0.75rem;
+        overflow-wrap: anywhere;
+    }
+
+    .copy {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.7rem;
+        overflow-wrap: anywhere;
+    }
+
+    .copy a {
+        overflow-wrap: anywhere;
+    }
+}
+
+/* =========================================
+   DARK THEME
+ I changed the colors only and preserved the layout.
+========================================= */
+
+:root[data-theme="dark"] {
+    --color-background: #141D2F;
+    --color-surface: #1F2A48;
+    --color-primary: #0079FF;
+    --color-secondary: #0079FF;
+    --color-text: #FFFFFF;
+    --color-muted: #8A9FCF;
+    --color-table-row: #F2F7FF;
+    --color-border: #FFFFFF;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+/* Made the logo white without changing its source file. */
+:root[data-theme="dark"] header>img {
+    filter: brightness(0) invert(1);
+}
+
+/* Theme toggle text */
+:root[data-theme="dark"] header button {
+    color: #FFFFFF;
+}
+
+/* =========================================
+   SEARCH FORM
+========================================= */
+
+:root[data-theme="dark"] main>form {
+    background-color: var(--color-surface);
+    box-shadow: none;
+    border-radius: 1rem;
+}
+
+/* Search input text */
+:root[data-theme="dark"] main>form input {
+    color: #FFFFFF;
+}
+
+/* Search placeholder */
+:root[data-theme="dark"] main>form input::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+/* Search form focus state */
+:root[data-theme="dark"] main>form:focus-within {
+    border: 1px solid var(--color-primary);
+    border-radius: 1rem;
+}
+
+/* Removed the browser's default search-field border. */
+:root[data-theme="dark"] main>form input:focus {
+    outline: none;
+}
+
+/* =========================================
+   PLANET DETAILS CARD
+========================================= */
+
+:root[data-theme="dark"] main>section:first-of-type article {
+    background-color: var(--color-surface);
+    box-shadow: none;
+}
+
+/* Planet name */
+:root[data-theme="dark"] main>section:first-of-type article h1 {
+    color: #FFFFFF;
+}
+
+/* Planet category */
+:root[data-theme="dark"] main>section:first-of-type article>span {
+    color: var(--color-primary);
+}
+
+/* Planet description */
+:root[data-theme="dark"] main>section:first-of-type article>p {
+    color: var(--color-muted);
+}
+
+/* =========================================
+   PRIMARY STATISTICS
+========================================= */
+
+/* Gravity, Mass and Period panel */
+:root[data-theme="dark"] main>section:first-of-type article>dl:first-of-type {
+    background-color: #0F172A;
+}
+
+/* All statistic labels */
+:root[data-theme="dark"] main>section:first-of-type article>dl dt {
+    color: #FFFFFF;
+}
+
+/* All statistic values */
+:root[data-theme="dark"] main>section:first-of-type article>dl dd {
+    color: #FFFFFF;
+}
+
+/* =========================================
+   STATISTIC SVG ICONS
+========================================= */
+
+/*
+   Made the statistic icons white.
+   This filter works for monochrome SVGs and images.
+*/
+
+:root[data-theme="dark"] main>section:first-of-type article>dl:nth-of-type(2) img {
+    filter: brightness(0) invert(1);
+}
+
+/* =========================================
+   PLANETARY FACTS
+========================================= */
+
+/* Section heading */
+:root[data-theme="dark"] .planetary-facts h2 {
+    color: #FFFFFF;
+}
+
+/* Description and NASA caption */
+:root[data-theme="dark"] .planetary-facts>p,
+:root[data-theme="dark"] .planetary-facts caption {
+    color: #FFFFFF;
+}
+
+/* =========================================
+   PLANETARY TABLE
+========================================= */
+
+/* Table heading row */
+:root[data-theme="dark"] .planetary-facts thead {
+    background-color: #141D2F;
+    color: #FFFFFF;
+}
+
+/* NASA data rows */
+:root[data-theme="dark"] .planetary-facts tbody td {
+    background-color: #F2F7FF;
+    color: #141D2F;
+}
+
+/* Planet category cells */
+:root[data-theme="dark"] .planetary-facts tbody th {
+    background-color: #91A7D6;
+    color: #141D2F;
+}
+
+/* Preserved the existing table borders. */
+:root[data-theme="dark"] .planetary-facts th,
+:root[data-theme="dark"] .planetary-facts td {
+    border-color: #FFFFFF;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+:root[data-theme="dark"] footer {
+    background-color: var(--color-background);
+    border-top-color: #273653;
+}
+
+/* All footer text */
+:root[data-theme="dark"] .about-and-footer,
+:root[data-theme="dark"] .about h3,
+:root[data-theme="dark"] .contributors,
+:root[data-theme="dark"] .copy,
+:root[data-theme="dark"] .copy p {
+    color: #FFFFFF;
+}
+
+/* Footer links */
+:root[data-theme="dark"] .copy a {
+    color: #8A9FCF;
+}
+
+:root[data-theme="dark"] .copy a:hover {
+    color: #FFFFFF;
+}
