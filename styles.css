@@ -281,6 +281,16 @@ main>form button:hover {
     filter: brightness(0.92);
 }
 
+/* Show a blue border when the search field is focused. */
+main > form:focus-within {
+    border: 1px solid var(--color-primary);
+}
+
+/* Keep the input itself from showing a separate outline. */
+main > form input:focus {
+    outline: none;
+}
+
 /* ==============================
    PLANET DETAILS CARD
 ============================== */
@@ -558,35 +568,35 @@ span,
         width: 7rem;
     }
 
-    /* Search form */
-    main>form {
-        gap: 0.5rem;
-        margin-block: 1.5rem;
-        padding: 0.5rem;
-        border: 1px solid var(--color-primary);
-        border-radius: 0.75rem;
-        min-width: 0;
-    }
-
-    main>form>img {
-        width: 1.125rem;
-        flex-shrink: 0;
-    }
-
-    main>form input {
-        flex: 1;
-        min-width: 0;
-        width: 100%;
-        font-size: 0.75rem;
-    }
-
-    main>form button {
-        flex-shrink: 0;
-        padding: 0.65rem 0.9rem;
-        font-size: 0.75rem;
-    }
-
-    /* Planet details card */
+        /* Search form */
+        main>form {
+            gap: 0.5rem;
+            margin-block: 1.5rem;
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            min-width: 0;
+        }
+    
+        main>form>img {
+            width: 1.125rem;
+            height: 1.125rem;
+            flex-shrink: 0;
+        }
+    
+        main>form input {
+            flex: 1;
+            min-width: 0;
+            width: 100%;
+            font-size: 0.75rem;
+        }
+    
+        main>form button {
+            flex-shrink: 0;
+            padding: 0.65rem 0.9rem;
+            font-size: 0.75rem;
+        }
+        
+        /* Planet details card */
     main>section:first-of-type article {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
@@ -736,6 +746,20 @@ span,
         font-size: 0.6rem;
     }
 
+    /* Hide the Mass column on mobile screens. */
+    .planetary-facts th:nth-child(3),
+    .planetary-facts td:nth-child(3) {
+        display: none;
+    }
+
+    /* Keep the table corners rounded on mobile screens. */
+    .planetary-facts table {
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        border-radius: 0.75rem;
+    }
+
     /* =====================================
        FOOTER
     ===================================== */
@@ -770,7 +794,28 @@ span,
     .copy a {
         overflow-wrap: anywhere;
     }
+
+    
+    .planetary-facts table {
+        display: table;
+        width: 100%;
+        max-width: 100%;
+        table-layout: fixed;
+    }
+
+    .planetary-facts th,
+    .planetary-facts td {
+        box-sizing: border-box;
+        min-width: 0;
+        overflow-wrap: break-word;
+    }
+
+    /* Hide only the Mass column on mobile. */ 
+    .planetary-facts th:nth-child(3),
+     .planetary-facts td:nth-child(3)
+     { display: none; }
 }
+
 
 /* =========================================
    DARK THEME
@@ -809,7 +854,6 @@ span,
 :root[data-theme="dark"] main>form {
     background-color: var(--color-surface);
     box-shadow: none;
-    border-radius: 1rem;
 }
 
 /* Search input text */
@@ -825,13 +869,17 @@ span,
 
 /* Search form focus state */
 :root[data-theme="dark"] main>form:focus-within {
-    border: 1px solid var(--color-primary);
-    border-radius: 1rem;
+    border-color: var(--color-primary);
 }
 
 /* Removed the browser's default search-field border. */
 :root[data-theme="dark"] main>form input:focus {
     outline: none;
+}
+
+/* Search button hover state */
+:root[data-theme="dark"] main>form button:hover {
+    background-color: #3395FF;
 }
 
 /* =========================================
@@ -958,4 +1006,121 @@ span,
 
 :root[data-theme="dark"] .copy a:hover {
     color: #FFFFFF;
+}
+
+
+/* =========================================
+   SEARCH ERROR STATE
+========================================= */
+
+/* Keep the error card hidden until a search fails. */
+#search-status {
+    display: none;
+}
+
+/* Show the error card only when a search fails. */
+body.search-error #search-status {
+    display: block;
+    width: 100%;
+    margin-block: 1.25rem 2rem;
+    padding: 2rem 1.5rem;
+    border-radius: 0.25rem;
+    background-color: #FFFFFF;
+    color: var(--color-muted);
+    text-align: center;
+    font-family: "Space Mono", monospace;
+    font-size: 0.8rem;
+}
+
+/* Style the error heading shown in the card. */
+body.search-error #search-status h2 {
+    margin-bottom: 0.75rem;
+    color: inherit;
+    font-size: 1.125rem;
+    line-height: 1.4;
+}
+
+/* Style the explanation beneath the error heading. */
+body.search-error #search-status p {
+    color: inherit;
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+/* Hide the planet details, comparison table, and footer
+   while the search error is being displayed. */
+body.search-error main > section:first-of-type,
+body.search-error .planetary-facts,
+body.search-error footer {
+    display: none;
+}
+
+/* Red message displayed when a planet cannot be found. */
+/*
+#search-message {
+    display: none;
+    color: #FF0000;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+/* Show the message when the search returns no results. */
+ /*#search-message.visible {
+    display: inline;
+} */
+
+/* Red message inside the search field */
+main > form {
+    position: relative;
+}
+
+#search-message {
+    display: none;
+    position: absolute;
+    right: 9.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FF0000;
+    font-size: 0.75rem;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+#search-message.visible {
+    display: block;
+}
+/* Use the dark background for the error card in dark mode. */
+:root[data-theme="dark"] body.search-error #search-status {
+    background-color: #1F2A48;
+    color: #FFFFFF;
+}
+
+/* =========================================
+   PLANETARY TABLE — ROUNDED OUTER CORNERS
+========================================= */
+
+.planetary-facts table {
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+/* Round the four outer corners */
+.planetary-facts thead tr:first-child th:first-child {
+    border-top-left-radius: 0.75rem;
+}
+
+.planetary-facts thead tr:first-child th:last-child {
+    border-top-right-radius: 0.75rem;
+}
+
+.planetary-facts tbody tr:last-child th:first-child,
+.planetary-facts tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 0.75rem;
+}
+
+.planetary-facts tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 0.75rem;
 }

@@ -12,6 +12,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io (3)/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io (3)/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon_io (3)/site.webmanifest">
+    <link rel="shortcut icon" href="/assets/favicon_io (3)/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -39,10 +40,20 @@
         <form action="" method="get">
             <img src="/assets/Search Icon.png" alt="">
             <label for="search-bar">Search planet name</label>
-            <input type="search" name="search" id="search-bar" placeholder="Search planet name">
+            <input type="search" name="search" id="search-bar" placeholder="Search planet name...">
+
+            <span id="search-message" role="status" aria-live="polite"></span>
+            
             <button type="submit">search</button>
         </form>
-        <p id="search-status" role="status" aria-live="polite"></p>
+
+        <div id="search-status" role="status" aria-live="polite">
+            <h2>No results found!</h2>
+            <p>
+                We couldn't find any planet matching your search.
+                Please double-check the name and try again.
+            </p>
+        </div>
 
         <section aria-labelledby="planet-name">
             <article>
@@ -88,7 +99,7 @@
                     <div>
                         <dt class="visually-hidden">Diameter</dt>
                         <dd>
-                            <img src="./assets/diameter.svg" alt="">
+                            <img src="/assets/Diameter.svg" alt="diameter-icon">
                             12756
                         </dd>
                     </div>
@@ -180,7 +191,7 @@
                     </tr>
 
                     <tr>
-                        <th scope="row" colspan="2">Dwarf Planet</th>
+                        <th scope="row" colspan="2">Dwarf Planets</th>
                         <td>Pluto</td>
                         <td>0.0130</td>
                         <td>2376</td>

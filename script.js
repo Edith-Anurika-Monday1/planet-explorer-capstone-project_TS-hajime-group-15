@@ -9,6 +9,7 @@ const API_URL = "https://anurella.github.io/json/planet.json";
 const searchForm = document.querySelector("main > form");
 const searchInput = document.querySelector("#search-bar");
 const searchStatus = document.querySelector("#search-status");
+const searchMessage = document.querySelector("#search-message");
 
 // Planet details elements
 const planetSection = document.querySelector(
@@ -56,13 +57,18 @@ const statIcons = statElements.map((element) =>
 // ============================================
 
 function showLoading(planet) {
+    // Restore the normal page when a new search begins.
+    document.body.classList.remove("search-error");
+
+    searchMessage.textContent = "";
+    searchMessage.classList.remove("visible");
+
     searchStatus.textContent = `Searching for ${planet}...`;
     searchStatus.setAttribute("aria-busy", "true");
 
     searchInput.disabled = true;
     searchForm.querySelector('button[type="submit"]').disabled = true;
 }
-
 
 // ============================================
 // END LOADING STATE
@@ -80,10 +86,22 @@ function hideLoading() {
 // DISPLAY ERROR MESSAGES
 // ============================================
 
-function showError(message) {
-    searchStatus.textContent = message;
-}
+function showError(message, heading = "No results found!") {
+    document.body.classList.add("search-error");
 
+    searchStatus.innerHTML = `
+        <h2>${heading}</h2>
+        <p>${message}</p>
+    `;
+
+    if (heading === "No results found!") {
+        searchMessage.textContent = "No results";
+        searchMessage.classList.add("visible");
+    } else {
+        searchMessage.textContent = "";
+        searchMessage.classList.remove("visible");
+    }
+}
 
 // ============================================
 // UPDATE PLANET DETAILS
@@ -151,9 +169,13 @@ function updatePlanet(planet) {
         planet.orbitalDistance
     );
 
-    // Clear the loading message after a successful update.
-    searchStatus.textContent = "";
-}
+    // Restore the normal page after a successful search.
+document.body.classList.remove("search-error");
+
+// Clear previous messages.
+searchStatus.textContent = "";
+searchMessage.textContent = "";
+searchMessage.classList.remove("visible");}
 
 
 // ============================================
@@ -177,7 +199,10 @@ async function searchPlanet(planetNameToFind) {
 
     // Does not search if the input is empty.
     if (!searchTerm) {
-        showError("Please enter a planet name.");
+        showError(
+            "Please enter a planet name.",
+            "Search field is empty"
+        );
         searchInput.focus();
         return;
     }
@@ -224,7 +249,7 @@ async function searchPlanet(planetNameToFind) {
         // Handle a planet that does not exist in the API data.
         if (!selectedPlanet) {
             showError(
-                `No planet found for "${searchTerm}". Please check the name and try again.`
+                `We couldn't find any planet matching "${searchTerm}". Please double-check the name and try again.`
             );
             return;
         }
@@ -236,7 +261,8 @@ async function searchPlanet(planetNameToFind) {
         console.error("Planet search failed:", error);
 
         showError(
-            "Unable to load planet data. Please check your connection and try again."
+            "We couldn't load the planet data. Please check your internet connection and try again.",
+            "Unable to load results"
         );
 
     } finally {
@@ -259,36 +285,13 @@ searchForm.addEventListener("submit", (event) => {
     searchPlanet(searchInput.value);
 });
 
-/* const themeToggle = document.querySelector(
-    'header button[aria-label="Toggle color theme"]'
-);
 
-const themeLabel = themeToggle.firstChild;
-const root = document.documentElement;
 
-function setTheme(theme) {
-    root.dataset.theme = theme;
 
-    const isDark = theme === "dark";
 
-    themeLabel.textContent = isDark ? "LIGHT" : "DARK";
-
-    themeToggle.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light theme" : "Switch to dark theme"
-    );
-
-    themeToggle.setAttribute("aria-pressed", String(isDark));
-}
-
-themeToggle.addEventListener("click", () => {
-    const currentTheme = root.dataset.theme || "light";
-
-    setTheme(currentTheme === "light" ? "dark" : "light");
-});
-
-/* Start in light mode, preserving current appearance. */
-// setTheme("light"); 
+// ============================================
+// DARK AND LIGHT THEME
+// ============================================
 
 const themeToggle = document.querySelector(
     'header button[aria-label="Toggle color theme"]'
