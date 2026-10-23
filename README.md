@@ -174,7 +174,7 @@ The table needed to communicate the relationship between terrestrial planets, ga
 
 We used grouped header cells and spanning attributes to organise the categories while keeping the planetary names, mass, and diameter in their appropriate columns.
 
-9. Working with Git and GitHub during a team project
+7. Working with Git and GitHub during a team project
 
 The project also involved working within a team and using GitHub to manage the code.
 
@@ -225,11 +225,11 @@ To run the project locally:
 
 1. Clone the repository.
 
--Click the Code button.
--Select HTTPS.
--Copy the repository URL.
--Open your computer's terminal or VS Code terminal.
--Run the command below:
+- Click the Code button.
+- Select HTTPS.
+- Copy the repository URL.
+- Open your computer's terminal or VS Code terminal.
+- Run the command below:
 
 ```bash
 git clone https://github.com/Edith-Anurika-Monday1/planet-explorer-capstone-project_TS-hajime-group-15
@@ -241,6 +241,14 @@ git clone https://github.com/Edith-Anurika-Monday1/planet-explorer-capstone-proj
 5. Resize the browser to check the responsive layout.
 
 An internet connection is needed for the Google Fonts and remote planetary API used by the project.
+
+
+## Code Readability
+
+We organized the code into clearly commented sections to make the codebase easier to navigate and understand. 
+
+These comments explain what each section does and why it was implemented that way, helping both developers and non-developers understand the logic behind our work.
+
 
 ## 👥 The Team
 
@@ -258,10 +266,14 @@ This project was completed as the TS Academy HAJIME Frontend Development Capston
 10. Nnunya Nmesoma Triumph
 
 ## 🙌 Acknowledgements
+
 TS Academy — For the frontend development learning experience and capstone project.
+
 Amaka Ndukwu — For the CSS reset used in the project and the figma design.
 
+
 ## Reviews And Feedback 
+
 
 Your reviews and feedback are highly welcome! 
 
