@@ -25,14 +25,14 @@ It was also a learning experience in understanding how different parts of a fron
 
 ## Technologies & Tools
 
-- Built With
- - HTML5 — For the structure and semantic organisation of the page.
- - CSS3 — For styling, responsive layouts, CSS Grid, custom properties, and theme colours.
- - JavaScript — For handling form submissions, fetching data, updating the page, and switching themes.
- - Fetch API — For requesting planetary information.
- - JSON — For working with the data returned by the API.
- - Git and GitHub — For version control and project collaboration.
- - Figma — For the design reference.
+### Built With
+- HTML5 — For the structure and semantic organisation of the page.
+- CSS3 — For styling, responsive layouts, CSS Grid, custom properties, and theme colours.
+- JavaScript — For handling form submissions, fetching data, updating the page, and switching themes.
+- Fetch API — For requesting planetary information.
+- JSON — For working with the data returned by the API.
+- Git and GitHub — For version control and project collaboration.
+- Figma — For the design reference.
 
 
 ## 🪐 How the Planet Search Works
@@ -184,7 +184,7 @@ It also reinforced the importance of checking that code matches the design and w
 
 ---
 
-## 💡 What I Improved and Learned
+## 💡 What We Improved and Learned
 
 This project helped us connect concepts that can initially feel separate when learning frontend development.
 
