@@ -206,16 +206,16 @@ Most importantly, we had to think about how the different parts of the applicati
 
 ## 🚀 Possible Future Improvements
 
-- There are still improvements that could make Planet Explorer more useful.
+There are still improvements that could make Planet Explorer more useful.
 
 Some ideas include:
 
-  - Remembering the user's preferred theme after refreshing the page.
-  - Providing more specific feedback when an image cannot load.
-  - Adding automated tests for the search, error handling, and theme toggle.
-  - Reviewing keyboard navigation and colour contrast across both themes.
-  - Adding more detailed planetary information if a suitable data source becomes available.
-  - highlighting the searched planet's data on the comparison table immediately while been searched.
+- Remembering the user's preferred theme after refreshing the page.
+- Providing more specific feedback when an image cannot load.
+- Adding automated tests for the search, error handling, and theme toggle.
+- Reviewing keyboard navigation and colour contrast across both themes.
+- Adding more detailed planetary information if a suitable data source becomes available.
+- highlighting the searched planet's data on the comparison table immediately while been searched.
 
 ---
 
@@ -224,6 +224,17 @@ Some ideas include:
 To run the project locally:
 
 1. Clone the repository.
+
+-Click the Code button.
+-Select HTTPS.
+-Copy the repository URL.
+-Open your computer's terminal or VS Code terminal.
+-Run the command below:
+
+```bash
+git clone https://github.com/Edith-Anurika-Monday1/planet-explorer-capstone-project_TS-hajime-group-15
+```
+
 2. Open the project folder in your code editor.
 3. Run index.html using a local development server.
 4. Search for a planet and test the theme toggle.
@@ -233,7 +244,18 @@ An internet connection is needed for the Google Fonts and remote planetary API u
 
 ## 👥 The Team
 
-This project was completed as the TS Academy HAJIME Frontend Development Capstone Project.
+This project was completed as the TS Academy HAJIME Frontend Development Capstone Project by the GREAT DEVS 🧡.
+
+1. Edith Anurika Monday(Team Lead)
+2.  Babatunde Ewegbemi A.(Assistant Team Lead)
+3. Oluwalore Tijesu Matthew
+4. Godstime Ogagarojo
+5. Gbadamosi Iyanu Bridget
+6. Oluwalanaayomi Samuel Akiode
+7. Samuel, Elizabeth Ebenge
+8. ⁠Elvis Elmenmonde Ihimire
+9. Comfort Nko Akor
+10. Nnunya Nmesoma Triumph
 
 ## 🙌 Acknowledgements
 TS Academy — For the frontend development learning experience and capstone project.
