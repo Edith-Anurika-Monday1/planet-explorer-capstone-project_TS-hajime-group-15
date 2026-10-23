@@ -73,7 +73,7 @@ The comparison table presents planetary facts attributed to NASA and includes th
 
 The table contains the planet names, mass, and diameter.
 
-We used semantic table elements such as <table>, <caption>, <thead>, <tbody>, <th>, and <td>. We also used rowspan and colspan to group related planets and represent the categories shown in the design.
+We used semantic table elements such as **table**, **caption**, **thead**, **tbody**, **th**, and **td**. We also used rowspan and colspan to group related planets and represent the categories shown in the design.
 
 ---
 
@@ -260,3 +260,11 @@ This project was completed as the TS Academy HAJIME Frontend Development Capston
 ## 🙌 Acknowledgements
 TS Academy — For the frontend development learning experience and capstone project.
 Amaka Ndukwu — For the CSS reset used in the project and the figma design.
+
+## Reviews And Feedback 
+
+Your reviews and feedback are highly welcome! 
+
+Feel free to share your thoughts, suggestions, and recommendations to help improve this project. 
+
+All constructive feedback is appreciated.🧡
